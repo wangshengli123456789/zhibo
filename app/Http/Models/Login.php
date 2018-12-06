@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\DB;
 
 class Login
 {
+    /**
+     * 后台用户的登录
+     * @param $data
+     * @return mixed
+     */
     public static function loginAdmin($data)
     {
         $res = DB::table('zb_admin_login')->where('name',$data['username'])->first();
@@ -31,5 +36,52 @@ class Login
             $info['msg'] = '用户不存在';
         }
         return $info;
+    }
+
+    /**
+     * 直播分类的添加（无限极分类）
+     */
+    public static function protype()
+    {
+        $data = DB::table('zb_type')->get();
+        $res = self::getTree($data);
+        return $res;
+    }
+
+    /**
+     * 无限极分类
+     * @param $data
+     * @param int $pid
+     * @param int $level
+     * @return array
+     */
+    private static function getTree($data,$pid=0,$level=0)
+    {
+        //定义一个静态的数组
+        static $array = array();
+        foreach ($data as $k => $v){
+            if ($v->pid == $pid){
+                $v->level = $level;
+                $array[]=$v;
+                self::getTree($data,$v->id,$level+1);
+            }
+        }
+        return $array;
+    }
+    /**
+     * 将分类信息添加到数据表中
+     */
+    public static function typeAdd($data)
+    {
+        $res = DB::table('zb_type')->insert($data);
+        return $res;
+    }
+    /**
+     * 将分类的信息进行删除
+     */
+    public static function deleteType($id)
+    {
+        $res = DB::table('zb_type')->delete($id);
+        return $res;
     }
 }

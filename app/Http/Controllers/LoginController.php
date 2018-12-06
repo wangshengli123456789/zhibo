@@ -54,6 +54,51 @@ class LoginController extends Controller
         return view('login/index',['data'=>$array]);
     }
     /**
+     * 直播分类的管理
+     */
+    public function design()
+    {
+        $res = Login::protype();
+        return view('login/design',['list'=>$res]);
+    }
+    /**
+     * 直播分类的添加
+     */
+    public function zbInsertType()
+    {
+        if (request()->isMethod('post')){
+            $data=\request()->only('pid','zb_name','sort','create_time');
+            //调用模型添加分类数据
+            $res = Login::typeAdd($data);
+            if ($res){
+                return redirect('design');
+            }
+        }else{
+            $res = Login::protype();
+            return view('login/insert',['list'=>$res]);
+        }
+    }
+    /**
+     * 直播作品分类的批量删除
+     */
+    public function zcTypeDelete()
+    {
+        $str = \request()->only('id');
+        $new_str = $str['id'];
+        $id = rtrim($str,',');
+        print_r($str);
+    }
+    /**
+     *
+     */
+    public function typeDelete($id)
+    {
+        $res = Login::deleteType($id);
+        if ($res){
+            return redirect('design');
+        }
+    }
+    /**
      * 退出系统
      */
     public function exits()
