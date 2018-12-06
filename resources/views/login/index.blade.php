@@ -1,9 +1,6 @@
 @extends('lyout.master')
 @section('content')
 <div class="main-wrap">
-    <div class="crumb-wrap">
-        <div class="crumb-list"><i class="icon-font">&#xe06b;</i><span>欢迎来到单身男女</span></div>
-    </div>
     <div class="result-wrap">
         <div class="result-title">
             <h1>快捷操作</h1>
