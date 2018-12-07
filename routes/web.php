@@ -23,3 +23,5 @@ Route::any('zb_insert_type',['uses'=>"ZbtypeController@zbInsertType"]);
 //直播作品的批量删除
 Route::any('zcTypeDelete',['uses'=>"ZbtypeController@zcTypeDelete"]);
 Route::any('typeDelete/{id}',['uses'=>"ZbtypeController@typeDelete"]);
+//直播作品的修改 typeUpdate
+Route::any('typeUpdate/{id}',['uses'=>"ZbtypeController@typeUpdate"]);

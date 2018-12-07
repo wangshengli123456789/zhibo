@@ -84,4 +84,20 @@ class Login
         $res = DB::table('zb_type')->delete($id);
         return $res;
     }
+    /**
+     * 修改分类信的查询
+     */
+    public static function typeUpdateRead($id)
+    {
+        $res = DB::table('zb_type')->where('id',$id)->first();
+        return $res;
+    }
+    /**
+     * 修改分类的信息
+     */
+    public static function typeUpdate($id,$data)
+    {
+        $res = DB::table('zb_type')->where('id',$id)->update($data);
+        return $res;
+    }
 }

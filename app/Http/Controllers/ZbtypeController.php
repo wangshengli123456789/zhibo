@@ -43,10 +43,32 @@ class ZbtypeController
      */
     public function zcTypeDelete()
     {
-        $str = \request()->only('id');
-        $new_str = $str['id'];
-        $id = rtrim($str,',');
-        print_r($str);
+        $str = request()->only('id');
+        $data = $str['id'];
+        //调用模型进行删除
+        $res = Login::deleteType($data);
+        if ($res){
+            return redirect('design');
+        }
+    }
+    /**
+     * 修改分类的信息
+     */
+    public function typeUpdate($id)
+    {
+        if (request()->isMethod('post')){
+            $data = request()->only('pid','zb_name','sort','create_time');
+            $res = Login::typeUpdate($id,$data);
+            if ($res){
+                return redirect('design');
+            }
+        }else{
+            //显示修改页面
+            //根据id查询修改的信息
+            $data = Login::typeUpdateRead($id);
+            $res = Login::protype();
+            return view('login/update',['list'=>$res,'data'=>$id,'info'=>$data]);
+        }
     }
     /**
      *删除的操作

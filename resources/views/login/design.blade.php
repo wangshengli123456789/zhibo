@@ -19,12 +19,12 @@
             </div>
         </div>
         <div class="result-wrap">
-            <form name="myform" id="myform" method="post">
+            <form name="myform" id="myform" method="post" action="zcTypeDelete">
                 <div class="result-title">
                     <div class="result-list">
+                        {{csrf_field()}}
                         <a href="/zb_insert_type"><i class="icon-font"></i>新增作品分类</a>
-                        <a id="batchDel" href="javascript:void(0)" onclick="check_delall()"><i class="icon-font" ></i>批量删除</a>
-                        <a id="updateOrd" href="javascript:void(0)"><i class="icon-font"></i>更新排序</a>
+                        <a id="batchDel" href="javascript:void(0)" onclick="$('#myform').submit()"><i class="icon-font" ></i>批量删除</a>
                     </div>
                 </div>
                 <div class="result-content">
@@ -40,7 +40,7 @@
                         </tr>
                         @foreach($list as $k=>$v)
                             <tr>
-                                <td class="tc"><input class="ids" value="{{$v->id}}" type="checkbox"></td>
+                                <td class="tc"><input class="ids" value="{{$v->id}}" name="id[]" type="checkbox"></td>
                                 <td>
                                     {{$v->sort}}
                                 </td>
@@ -51,7 +51,7 @@
                                 <td>{{date('Y-m-d H:i:s',$v->create_time)}}</td>
 
                                 <td>
-                                    <a class="link-update" href="#">修改</a>
+                                    <a class="link-update" href="/typeUpdate/{{$v->id}}">修改</a>
                                     <a class="link-del" href="/typeDelete/{{$v->id}}">删除</a>
                                 </td>
                             </tr>
@@ -68,24 +68,6 @@
             var oC = $(this).prop('checked');
             $('.ids').prop('checked',oC);
         });
-        // //批量删除的方法
-        // function check_delall() {
-        //     var a='';
-        //     for (var i=0;i<$('.ids').length;i++){
-        //         if ($('.ids').eq(i).prop("checked")){
-        //             a+=$('.ids').eq(i).val()+',';
-        //         }
-        //     }
-        //     $.ajax({
-        //         type:"post",
-        //         url:"/zcTypeDelete",
-        //         data:{id:a},
-        //         success:function (e) {
-        //             alert(e)
-        //             //window.onload;
-        //         }
-        //     });
-        // }
     </script>
     <!--/main-->
 @endsection
