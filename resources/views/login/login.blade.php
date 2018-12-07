@@ -1,33 +1,45 @@
 <!doctype html>
-<html>
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <title>后台登录</title>
-    <link href="{{asset('login')}}/css/admin_login.css" rel="stylesheet" type="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>翻转式用户登录注册界面设计</title>
+    <link rel="stylesheet" type="text/css" href="{{asset('login')}}/css/styles.css">
+    <!--[if IE]>
+    <script src="http://libs.baidu.com/html5shiv/3.7/html5shiv.min.js"></script>
+    <![endif]-->
 </head>
 <body>
-<div class="admin_login_wrap">
-    <h1>后台管理</h1>
-    <div class="adming_login_border">
-        <div class="admin_input">
-            <form action="/" method="post">
-                <ul class="admin_items">
-                    <li>
-                        {{csrf_field()}}
-                        <label for="user">用户名：</label>
-                        <input type="text" name="username" value="admin" id="user" size="40" class="admin_input_style" />
-                    </li>
-                    <li>
-                        <label for="pwd">密码：</label>
-                        <input type="password" name="pwd" value="admin" id="pwd" size="40" class="admin_input_style" />
-                    </li>
-                    <li>
-                        <input type="submit" tabindex="3" value="提交" class="btn btn-primary" />
-                    </li>
-                </ul>
-            </form>
+<form action="" method="post">
+<div class="jq22-container" style="padding-top:100px">
+    <div class="login-wrap">
+        <div class="login-html">
+            <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
+            <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab"></label>
+            <div class="login-form">
+                <div class="sign-in-htm">
+                    <div class="group">
+                        <label for="user" class="label">Username</label>
+                        <input id="user" type="text" class="input" name="username">
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Password</label>
+                        <input id="pass" type="password" class="input" data-type="password" name="pwd">
+                    </div>
+
+                    <div class="group">
+                        <input type="submit" class="button" value="Sign In">
+                    </div>
+                    <div class="hr"></div>
+                    <div class="foot-lnk">
+                        <a href="#forgot">Forgot Password?</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+</form>
 </body>
 </html>
