@@ -15,6 +15,7 @@
                             <th width="120"><i class="require-red">*</i>上级分类：</th>
                             <td>
                                 <select name="pid" id="catid" class="required">
+                                    <option value="0">顶级分类</option>
                                     @foreach($list as $k=>$v)
                                         <option value="{{$v->id}}">{{str_repeat('--|',$v->level)}}{{$v->zb_name}}</option>
                                     @endforeach
