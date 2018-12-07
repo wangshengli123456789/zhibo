@@ -25,3 +25,17 @@ Route::any('zcTypeDelete',['uses'=>"ZbtypeController@zcTypeDelete"]);
 Route::any('typeDelete/{id}',['uses'=>"ZbtypeController@typeDelete"]);
 //直播作品的修改 typeUpdate
 Route::any('typeUpdate/{id}',['uses'=>"ZbtypeController@typeUpdate"]);
+//直播类型的状态改变
+Route::any('updatetypestatus',['uses'=>"ZbtypeController@updatetypestatus"]);
+//显示轮播图的页面
+Route::any('nav',['uses'=>"NavController@nav"]);
+//轮播图管理
+Route::any('navadd',['uses'=>"NavController@navadd"]);
+//删除轮播图
+Route::any('navdel/{id}',['uses'=>"NavController@navdel"]);
+//轮播图的批量删除
+Route::any('navdelall',['uses'=>"NavController@navdelall"]);
+//轮播图的修改
+Route::any('navpdate/{id}',['uses'=>"NavController@navupdate"]);
+//轮播图状态的修改
+Route::any('updatestatus',['uses'=>"NavController@updatestatus"]);

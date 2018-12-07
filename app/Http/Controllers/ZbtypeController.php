@@ -80,4 +80,15 @@ class ZbtypeController
             return redirect('design');
         }
     }
+    /*
+     * 分类状态的修改
+     */
+    public function updatetypestatus()
+    {
+        $id = request()->only('id','status');
+        $res = Login::updatestatus($id);
+        if ($res){
+            return $res;
+        }
+    }
 }

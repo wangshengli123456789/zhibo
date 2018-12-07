@@ -34,7 +34,7 @@
                         <a href="#"><i class="icon-font">&#xe003;</i>常用操作</a>
                         <ul class="sub-menu">
                             <li><a href="design.html"><i class="icon-font">&#xe008;</i>直播作品管理</a></li>
-                            <li><a href="design.html"><i class="icon-font">&#xe005;</i>博文管理</a></li>
+                            <li><a href="/nav"><i class="icon-font">&#xe005;</i>轮播图管理</a></li>
                             <li><a href="/design"><i class="icon-font">&#xe006;</i>直播分类管理</a></li>
                         </ul>
                     </li>

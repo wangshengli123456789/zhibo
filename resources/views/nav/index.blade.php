@@ -3,7 +3,7 @@
     <div class="main-wrap">
 
         <div class="crumb-wrap">
-            <div class="crumb-list"><i class="icon-font"></i><a href="/jscss/admin">首页</a><span class="crumb-step">&gt;</span><span class="crumb-name">直播分类管理</span></div>
+            <div class="crumb-list"><i class="icon-font"></i><a href="/">首页</a><span class="crumb-step">&gt;</span><span class="crumb-name">轮播图管理</span></div>
         </div>
         <div class="search-wrap">
             <div class="search-content">
@@ -19,11 +19,11 @@
             </div>
         </div>
         <div class="result-wrap">
-            <form name="myform" id="myform" method="post" action="zcTypeDelete">
+            <form name="myform" id="myform" method="post" action="navdelall">
                 <div class="result-title">
                     <div class="result-list">
                         {{csrf_field()}}
-                        <a href="/zb_insert_type"><i class="icon-font"></i>新增直播分类</a>
+                        <a href="/navadd"><i class="icon-font"></i>新增轮播图</a>
                         <a id="batchDel" href="javascript:void(0)" onclick="$('#myform').submit()"><i class="icon-font" ></i>批量删除</a>
                     </div>
                 </div>
@@ -32,8 +32,9 @@
                         <tr>
                             <th class="tc" width="5%"><input class="allChoose" name="" type="checkbox"></th>
                             <th>排序</th>
-                            <th>ID</th>
-                            <th>标题</th>
+                            <th>链接地址</th>
+                            <th>图片名称</th>
+                            <th>缩略图</th>
                             <th>状态</th>
                             <th>添加时间</th>
                             <th>操作</th>
@@ -44,15 +45,19 @@
                                 <td>
                                     {{$v->sort}}
                                 </td>
-                                <td>{{$v->id}}</td>
-                                <td>{{str_repeat('--|',$v->level)}}{{$v->zb_name}}
+                                <td>{{$v->nav_url}}</td>
+                                <td>
+                                    {{$v->nav_name}}
                                 </td>
-                                <td>@if($v->status)<a id="a{{$v->id}}" href="javascript:void(0)" onclick="status({{$v->id}},{{$v->status}})">正常</a>@else <a href="javascript:void(0)" onclick="status({{$v->id}},{{$v->status}})">禁用</a>@endif</td>
+                                <td>
+                                    <img src="{{$v->nav_picture}}" alt="" width="30" height="30">
+                                </td>
+                                <td>@if($v->status)<a href="javascript:void(0)" onclick="status({{$v->id}},{{$v->status}})">正常</a>@else <a href="javascript:void(0)" onclick="status({{$v->id}},{{$v->status}})">禁用</a>@endif</td>
                                 <td>{{date('Y-m-d H:i:s',$v->create_time)}}</td>
 
                                 <td>
-                                    <a class="link-update" href="/typeUpdate/{{$v->id}}">修改</a>
-                                    <a class="link-del" href="/typeDelete/{{$v->id}}">删除</a>
+                                    <a class="link-update" href="/navpdate/{{$v->id}}">修改</a>
+                                    <a class="link-del" href="/navdel/{{$v->id}}">删除</a>
                                 </td>
                             </tr>
                         @endforeach
@@ -72,7 +77,7 @@
         function status(id,status) {
             $.ajax({
                 type:'get',
-                url:'/updatetypestatus',
+                url:'/updatestatus',
                 data:{status:status,id:id},
                 success:function (e) {
                     window.location.reload();

@@ -100,4 +100,19 @@ class Login
         $res = DB::table('zb_type')->where('id',$id)->update($data);
         return $res;
     }
+
+    /**
+     * 修改状态信息
+     * @param $data
+     * @return int
+     */
+    public static function updatestatus($data)
+    {
+        if ($data['status']=='0'){
+            $res = DB::table('zb_type')->where('id',$data['id'])->increment('status','1');
+        }else{
+            $res = DB::table('zb_type')->where('id',$data['id'])->decrement('status','1');
+        }
+        return $res;
+    }
 }
