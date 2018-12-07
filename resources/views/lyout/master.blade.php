@@ -2,9 +2,9 @@
     <head>
         <meta charset="UTF-8">
         <title>后台管理</title>
-        <link rel="stylesheet" type="text/css" href="{{asset('login')}}/css/common.css"/>
-        <link rel="stylesheet" type="text/css" href="{{asset('login')}}/css/main.css"/>
-        <script type="text/javascript" src="{{asset('login')}}/js/libs/modernizr.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="{{asset('admin')}}/css/common.css"/>
+        <link rel="stylesheet" type="text/css" href="{{asset('admin')}}/css/main.css"/>
+        <script type="text/javascript" src="{{asset('admin')}}/js/libs/modernizr.min.js"></script>
     </head>
 <body>
     <div class="topbar-wrap white">
