@@ -17,9 +17,9 @@ Route::any('index',['uses'=>"LoginController@index"]);
 //退出 exits
 Route::any('exit',['uses'=>"LoginController@exits"]);
 //显示分类的界面
-Route::any('design',['uses'=>"LoginController@design"]);
+Route::any('design',['uses'=>"ZbtypeController@design"]);
 //直播作品分类的新增 zb_insert
-Route::any('zb_insert_type',['uses'=>"LoginController@zbInsertType"]);
+Route::any('zb_insert_type',['uses'=>"ZbtypeController@zbInsertType"]);
 //直播作品的批量删除
-Route::any('zcTypeDelete',['uses'=>"LoginController@zcTypeDelete"]);
-Route::any('typeDelete/{id}',['uses'=>"LoginController@typeDelete"]);
+Route::any('zcTypeDelete',['uses'=>"ZbtypeController@zcTypeDelete"]);
+Route::any('typeDelete/{id}',['uses'=>"ZbtypeController@typeDelete"]);
