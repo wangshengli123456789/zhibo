@@ -50,6 +50,11 @@ class Nav
         $res = DB::table('zb_nav_picture')->delete($id);
         return $res;
     }
+    public static function navdeletes($id)
+    {
+        $res = DB::table('zb_nav_picture')->whereIn('id',$id)->delete();
+        return $res;
+    }
     /*
      * 轮播图状态的改变
      */

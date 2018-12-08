@@ -33,7 +33,7 @@
                     <li>
                         <a href="#"><i class="icon-font">&#xe003;</i>常用操作</a>
                         <ul class="sub-menu">
-                            <li><a href="design.html"><i class="icon-font">&#xe008;</i>直播作品管理</a></li>
+                            <li><a href="privieges"><i class="icon-font">&#xe008;</i>导航管理</a></li>
                             <li><a href="/nav"><i class="icon-font">&#xe005;</i>轮播图管理</a></li>
                             <li><a href="/design"><i class="icon-font">&#xe006;</i>直播分类管理</a></li>
                         </ul>
@@ -41,7 +41,7 @@
                     <li>
                         <a href="#"><i class="icon-font">&#xe018;</i>系统管理</a>
                         <ul class="sub-menu">
-                            <li><a href="system.html"><i class="icon-font">&#xe017;</i>系统设置</a></li>
+                            <li><a href="/system"><i class="icon-font">&#xe017;</i>系统设置</a></li>
                             <li><a href="system.html"><i class="icon-font">&#xe037;</i>帮助中心</a></li>
                             <li><a href="system.html"><i class="icon-font">&#xe046;</i>联系我们</a></li>
                             {{--<li><a href="system.html"><i class="icon-font">&#xe045;</i>数据还原</a></li>--}}

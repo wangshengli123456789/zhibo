@@ -84,6 +84,11 @@ class Login
         $res = DB::table('zb_type')->delete($id);
         return $res;
     }
+    public static function deleteTypes($id)
+    {
+        $res = DB::table('zb_type')->whereIn('id',$id)->delete();
+        return $res;
+    }
     /**
      * 修改分类信的查询
      */

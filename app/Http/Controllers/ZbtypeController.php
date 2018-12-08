@@ -46,7 +46,7 @@ class ZbtypeController
         $str = request()->only('id');
         $data = $str['id'];
         //调用模型进行删除
-        $res = Login::deleteType($data);
+        $res = Login::deleteTypes($data);
         if ($res){
             return redirect('design');
         }

@@ -3,7 +3,7 @@
     <div class="main-wrap">
 
         <div class="crumb-wrap">
-            <div class="crumb-list"><i class="icon-font"></i><a href="/index">首页</a><span class="crumb-step">&gt;</span><a class="crumb-name" href="/jscss/admin/design/">作品管理</a><span class="crumb-step">&gt;</span><span>新增作品</span></div>
+            <div class="crumb-list"><i class="icon-font"></i><a href="/jscss/admin/design/">首页</a><span class="crumb-step">&gt;</span><a class="crumb-name" href="/jscss/admin/design/">作品管理</a><span class="crumb-step">&gt;</span><span>新增作品</span></div>
         </div>
         <div class="result-wrap">
             <div class="result-content">
@@ -15,8 +15,9 @@
                             <th width="120"><i class="require-red">*</i>上级分类：</th>
                             <td>
                                 <select name="pid" id="catid" class="required">
+                                    <option value="0">顶级分类</option>
                                     @foreach($list as $k=>$v)
-                                        <option value="{{$v->id}}" @if($info->pid==$v->id)selected="selected" @endif>{{str_repeat('--|',$v->level)}}{{$v->zb_name}}</option>
+                                        <option value="{{$v->id}}">{{str_repeat('--|',$v->level)}}{{$v->zb_name}}</option>
                                     @endforeach
                                 </select>
                             </td>
@@ -24,12 +25,12 @@
                             <tr>
                                 <th><i class="require-red">*</i>分类名称：</th>
                                 <td>
-                                    <input class="common-text required" id="title" name="zb_name" size="50" value="{{$info->zb_name}}" type="text">
+                                    <input class="common-text required" id="title" name="zb_name" size="50" value="" type="text">
                                 </td>
                             </tr>
                             <tr>
                                 <th>排序：</th>
-                                <td><input class="common-text" name="sort" size="50" value="{{$info->sort}}" type="text"></td>
+                                <td><input class="common-text" name="sort" size="50" value="10" type="text"></td>
                             </tr>
                         <input type="hidden" value="{{time()}}" name="create_time">
                             <tr>

@@ -39,3 +39,7 @@ Route::any('navdelall',['uses'=>"NavController@navdelall"]);
 Route::any('navpdate/{id}',['uses'=>"NavController@navupdate"]);
 //轮播图状态的修改
 Route::any('updatestatus',['uses'=>"NavController@updatestatus"]);
+//系统设置界面的显示
+Route::any('system',['uses'=>"SystemController@systemindex"]);
+//导航栏的显示
+Route::any('privieges',['uses'=>"PriviegesController@priIndex"]);
