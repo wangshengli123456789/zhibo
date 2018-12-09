@@ -43,3 +43,8 @@ Route::any('updatestatus',['uses'=>"NavController@updatestatus"]);
 Route::any('system',['uses'=>"SystemController@systemindex"]);
 //导航栏的显示
 Route::any('privieges',['uses'=>"PriviegesController@priIndex"]);
+Route::any('priadd',['uses'=>"PriviegesController@priInsertType"]);
+Route::any('pridel/{id}',['uses'=>"PriviegesController@typeDelete"]);
+Route::any('pridelall',['uses'=>"PriviegesController@priTypeDelete"]);
+Route::any('priupdate/{id}',['uses'=>"PriviegesController@typeUpdate"]);
+Route::any('priupdatestatus',['uses'=>"PriviegesController@priupdatestatus"]);

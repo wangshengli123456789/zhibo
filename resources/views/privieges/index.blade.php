@@ -1,58 +1,84 @@
 @extends('lyout.master')
 @section('content')
-<div class="main-wrap">
-    <div class="result-wrap">
-        <div class="result-title">
-            <h1>快捷操作</h1>
+    <div class="main-wrap">
+
+        <div class="crumb-wrap">
+            <div class="crumb-list"><i class="icon-font"></i><a href="/index">首页</a><span class="crumb-step">&gt;</span><span class="crumb-name">导航管理</span></div>
         </div>
-        <div class="result-content">
-            <div class="short-wrap">
-                <a href="#"><i class="icon-font">&#xe001;</i>新增直播</a>
-                <a href="/navadd"><i class="icon-font">&#xe005;</i>新增轮播图</a>
-                <a href="/zb_insert_type"><i class="icon-font">&#xe048;</i>新增直播分类</a>
-                {{--<a href="#"><i class="icon-font">&#xe041;</i>新增博客分类</a>--}}
-                {{--<a href="#"><i class="icon-font">&#xe01e;</i>作品评论</a>--}}
+        <div class="search-wrap">
+            <div class="search-content">
+                <form action="" method="post">
+                    <table class="search-tab">
+                        <tr>
+                            <th width="70">关键字:</th>
+                            <td><input class="common-text" placeholder="关键字" name="keywords" value="" id="" type="text"></td>
+                            <td><input class="btn btn-primary btn2" name="sub" value="查询" type="submit"></td>
+                        </tr>
+                    </table>
+                </form>
             </div>
         </div>
+        <div class="result-wrap">
+            <form name="myform" id="myform" method="post" action="pridelall">
+                <div class="result-title">
+                    <div class="result-list">
+                        {{csrf_field()}}
+                        <a href="/priadd"><i class="icon-font"></i>新增导航</a>
+                        <a id="batchDel" href="javascript:void(0)" onclick="$('#myform').submit()"><i class="icon-font" ></i>批量删除</a>
+                    </div>
+                </div>
+                <div class="result-content">
+                    <table class="result-tab" width="100%">
+                        <tr>
+                            <th class="tc" width="5%"><input class="allChoose" name="" type="checkbox"></th>
+                            <th>排序</th>
+                            <th>ID</th>
+                            <th>导航名称</th>
+                            <th>状态</th>
+                            <th>添加时间</th>
+                            <th>操作</th>
+                        </tr>
+                        @foreach($list as $k=>$v)
+                            <tr>
+                                <td class="tc"><input class="ids" value="{{$v->id}}" name="id[]" type="checkbox"></td>
+                                <td>
+                                    {{$v->sort}}
+                                </td>
+                                <td>{{$v->id}}</td>
+                                <td>{{str_repeat('--|',$v->level)}}{{$v->pri_name}}
+                                </td>
+                                <td>@if($v->status)<a id="a{{$v->id}}" href="javascript:void(0)" onclick="status({{$v->id}},{{$v->status}})">正常</a>@else <a href="javascript:void(0)" onclick="status({{$v->id}},{{$v->status}})">禁用</a>@endif</td>
+                                <td>{{date('Y-m-d H:i:s',$v->create_time)}}</td>
+
+                                <td>
+                                    <a class="link-update" href="/priupdate/{{$v->id}}">修改</a>
+                                    <a class="link-del" href="/pridel/{{$v->id}}">删除</a>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </table>
+                </div>
+            </form>
+        </div>
     </div>
-    <div class="result-wrap">
-        <div class="result-title">
-            <h1>系统基本信息</h1>
-        </div>
-        <div class="result-content">
-            <ul class="sys-info-list">
-                <li>
-                    <label class="res-lab">操作系统</label><span class="res-info">{{$data['server']}}</span>
-                </li>
-                <li>
-                    <label class="res-lab">运行环境</label><span class="res-info">{{$data['apache']}}</span>
-                </li>
-                <li>
-                    <label class="res-lab">上传附件限制</label><span class="res-info">2M</span>
-                </li>
-                <li>
-                    <label class="res-lab">北京时间</label><span class="res-info">{{$data['create_time']}}</span>
-                </li>
-                <li>
-                    <label class="res-lab">服务器域名/IP</label><span class="res-info">{{$data['addrname']}}</span>
-                </li>
-                <li>
-                    <label class="res-lab">Host</label><span class="res-info">{{$data['host']}}</span>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="result-wrap">
-        <div class="result-title">
-            <h1>使用帮助</h1>
-        </div>
-        <div class="result-content">
-            <ul class="sys-info-list">
-                <li>
-                    <label class="res-lab">官方交流网站：</label><span class="res-info"><a href="{{$data['name']}}" target="_blank">{{$data['name']}}</a></span>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
+    <script src="http://www.jq22.com/jquery/jquery-3.3.1.js"></script>
+    <script>
+        // //全选的方法
+        $('.allChoose').click(function(){
+            var oC = $(this).prop('checked');
+            $('.ids').prop('checked',oC);
+        });
+        //更改状态
+        function status(id,status) {
+            $.ajax({
+                type:'get',
+                url:'/priupdatestatus',
+                data:{status:status,id:id},
+                success:function (e) {
+                    window.location.reload();
+                }
+            })
+        }
+    </script>
+    <!--/main-->
 @endsection
