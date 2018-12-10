@@ -29,6 +29,10 @@ class PriviegesController extends Controller
         if (request()->isMethod('post')){
             $data=\request()->only('pid','pri_name','sort','create_time');
             //调用模型添加分类数据
+            $info = Privieges::typeRead($data['pid'],$data['pri_name']);
+            if ($info){
+                echo "<script>alert('该分类已存在，请重新添加');history.back(-1);</script>";die;
+            }
             $res = Privieges::typeAdd($data);
             if ($res){
                 return redirect('privieges');
@@ -58,6 +62,10 @@ class PriviegesController extends Controller
     {
         if (request()->isMethod('post')){
             $data = request()->only('pid','pri_name','sort','create_time');
+            $info = Privieges::typeRead($data['pid'],$data['pri_name']);
+            if ($info){
+                echo "<script>alert('该分类已存在，请重新添加');history.back(-1);</script>";die;
+            }
             $res = Privieges::typeUpdate($id,$data);
             if ($res){
                 return redirect('privieges');
@@ -89,6 +97,41 @@ class PriviegesController extends Controller
         $res = Privieges::updatestatus($id);
         if ($res){
             return $res;
+        }
+    }
+    /**
+     * 搜索功能的实现
+     */
+    public function prisearch()
+    {
+        $data = \request()->only('keywords');
+        if (empty($data['keywords'])){
+            $res = Privieges::protype();
+        }else{
+            $res = Privieges::typeSelect($data['keywords']);
+        }
+
+        return view('privieges/index',['list'=>$res]);
+    }
+    /**
+     * 根据上级分类pid来添加数据
+     */
+    public function priadd($id)
+    {
+        if (request()->isMethod('post')){
+            $data=\request()->only('pri_name','sort','create_time');
+            //调用模型添加分类数据
+            $info = Privieges::typeRead($id,$data['pri_name']);
+            if ($info){
+                echo "<script>alert('该分类已存在，请重新添加');history.back(-1);</script>";die;
+            }
+            $data['pid'] = $id;
+            $res = Privieges::typeAdd($data);
+            if ($res){
+                return redirect('privieges');
+            }
+        }else{
+            return view('privieges/add');
         }
     }
 }

@@ -95,4 +95,18 @@ class NavController extends Controller
             return $res;
         }
     }
+    /**
+     * 搜索功能的实现
+     */
+    public function prisearch()
+    {
+        $data = \request()->only('keywords');
+        if (empty($data['keywords'])){
+            $res = Nav::protype();
+        }else{
+            $res = Nav::typeSelect($data['keywords']);
+        }
+
+        return view('nav/index',['list'=>$res]);
+    }
 }

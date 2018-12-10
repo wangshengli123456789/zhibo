@@ -68,6 +68,14 @@ class Login
         }
         return $array;
     }
+    /*
+     * 查询该分类是否添加到表中
+     */
+    public static function typeRead($pid,$name)
+    {
+        $res = DB::table('zb_type')->where(['pid'=>$pid,'zb_name'=>$name])->first();
+        return $res;
+    }
     /**
      * 将分类信息添加到数据表中
      */
@@ -119,5 +127,14 @@ class Login
             $res = DB::table('zb_type')->where('id',$data['id'])->decrement('status','1');
         }
         return $res;
+    }
+    /**
+     * 搜索信息
+     */
+    public static function typeSelect($data)
+    {
+        $res = DB::table('zb_type')->where('zb_name','like','%'.$data.'%')->get();
+        $ress = self::getTree($res);
+        return $ress;
     }
 }

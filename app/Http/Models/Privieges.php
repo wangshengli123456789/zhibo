@@ -51,6 +51,14 @@ class Privieges
         $res = DB::table('zb_navigation')->insert($data);
         return $res;
     }
+    /*
+     * 查询该分类是否添加到表中
+     */
+    public static function typeRead($pid,$name)
+    {
+        $res = DB::table('zb_navigation')->where(['pid'=>$pid,'pri_name'=>$name])->first();
+        return $res;
+    }
     /**
      * 将分类的信息进行删除
      */
@@ -94,5 +102,14 @@ class Privieges
             $res = DB::table('zb_navigation')->where('id',$data['id'])->decrement('status','1');
         }
         return $res;
+    }
+    /**
+     * 搜索信息
+     */
+    public static function typeSelect($data)
+    {
+        $res = DB::table('zb_navigation')->where('pri_name','like','%'.$data.'%')->get();
+        $ress = self::getTree($res);
+        return $ress;
     }
 }

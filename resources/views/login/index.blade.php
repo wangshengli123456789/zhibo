@@ -7,7 +7,7 @@
         </div>
         <div class="result-content">
             <div class="short-wrap">
-                <a href="#"><i class="icon-font">&#xe001;</i>新增直播</a>
+                <a href="/priadd"><i class="icon-font">&#xe001;</i>新增导航</a>
                 <a href="/navadd"><i class="icon-font">&#xe005;</i>新增轮播图</a>
                 <a href="/zb_insert_type"><i class="icon-font">&#xe048;</i>新增直播分类</a>
                 {{--<a href="#"><i class="icon-font">&#xe041;</i>新增博客分类</a>--}}
@@ -25,13 +25,25 @@
                     <label class="res-lab">操作系统</label><span class="res-info">{{$data['server']}}</span>
                 </li>
                 <li>
-                    <label class="res-lab">运行环境</label><span class="res-info">{{$data['apache']}}</span>
+                    <label class="res-lab">Apache运行环境</label><span class="res-info">{{$data['apache']}}</span>
                 </li>
                 <li>
-                    <label class="res-lab">上传附件限制</label><span class="res-info">2M</span>
+                    <label class="res-lab">php运行环境</label><span class="res-info">{{$data['php']}}</span>
                 </li>
                 <li>
-                    <label class="res-lab">北京时间</label><span class="res-info">{{$data['create_time']}}</span>
+                    <label class="res-lab">数据库类型</label><span class="res-info">{{$data['dbcontent']}}</span>
+                </li>
+                <li>
+                    <label class="res-lab">数据库端口</label><span class="res-info">{{$data['dbport']}}</span>
+                </li>
+                <li>
+                    <label class="res-lab">数据库名称</label><span class="res-info">{{$data['database']}}</span>
+                </li>
+                <li>
+                    <label class="res-lab">上传附件限制</label><span class="res-info">{{$data['filesize']}}</span>
+                </li>
+                <li>
+                    <label class="res-lab">本次登录时间</label><span class="res-info">{{$data['create_time']}}</span>
                 </li>
                 <li>
                     <label class="res-lab">服务器域名/IP</label><span class="res-info">{{$data['addrname']}}</span>

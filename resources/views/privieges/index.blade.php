@@ -7,9 +7,10 @@
         </div>
         <div class="search-wrap">
             <div class="search-content">
-                <form action="" method="post">
+                <form action="/prisearch" method="post">
                     <table class="search-tab">
                         <tr>
+                            {{csrf_field()}}
                             <th width="70">关键字:</th>
                             <td><input class="common-text" placeholder="关键字" name="keywords" value="" id="" type="text"></td>
                             <td><input class="btn btn-primary btn2" name="sub" value="查询" type="submit"></td>
@@ -23,7 +24,7 @@
                 <div class="result-title">
                     <div class="result-list">
                         {{csrf_field()}}
-                        <a href="/priadd"><i class="icon-font"></i>新增导航</a>
+                        <a href="/priadd"><i class="icon-font"></i>新增导航分类</a>
                         <a id="batchDel" href="javascript:void(0)" onclick="$('#myform').submit()"><i class="icon-font" ></i>批量删除</a>
                     </div>
                 </div>
@@ -44,14 +45,15 @@
                                 <td>
                                     {{$v->sort}}
                                 </td>
-                                <td>{{$v->id}}</td>
+                                <td>{{$k+1}}</td>
                                 <td>{{str_repeat('--|',$v->level)}}{{$v->pri_name}}
                                 </td>
                                 <td>@if($v->status)<a id="a{{$v->id}}" href="javascript:void(0)" onclick="status({{$v->id}},{{$v->status}})">正常</a>@else <a href="javascript:void(0)" onclick="status({{$v->id}},{{$v->status}})">禁用</a>@endif</td>
                                 <td>{{date('Y-m-d H:i:s',$v->create_time)}}</td>
 
                                 <td>
-                                    <a class="link-update" href="/priupdate/{{$v->id}}">修改</a>
+                                    <a class="link-update" href="/priadd/{{$v->id}}">添加下级导航</a> |
+                                    <a class="link-update" href="/priupdate/{{$v->id}}">修改</a> |
                                     <a class="link-del" href="/pridel/{{$v->id}}">删除</a>
                                 </td>
                             </tr>

@@ -7,11 +7,12 @@
         </div>
         <div class="search-wrap">
             <div class="search-content">
-                <form action="" method="post">
+                <form action="/typesearch" method="post">
                     <table class="search-tab">
                         <tr>
                             <th width="70">关键字:</th>
-                            <td><input class="common-text" placeholder="关键字" name="keywords" value="" id="" type="text"></td>
+                            {{csrf_field()}}
+                            <td><input class="common-text" placeholder="关键字" name="keywords" type="text"></td>
                             <td><input class="btn btn-primary btn2" name="sub" value="查询" type="submit"></td>
                         </tr>
                     </table>
@@ -44,13 +45,14 @@
                                 <td>
                                     {{$v->sort}}
                                 </td>
-                                <td>{{$v->id}}</td>
+                                <td>{{$k+1}}</td>
                                 <td>{{str_repeat('--|',$v->level)}}{{$v->zb_name}}
                                 </td>
                                 <td>@if($v->status)<a id="a{{$v->id}}" href="javascript:void(0)" onclick="status({{$v->id}},{{$v->status}})">正常</a>@else <a href="javascript:void(0)" onclick="status({{$v->id}},{{$v->status}})">禁用</a>@endif</td>
                                 <td>{{date('Y-m-d H:i:s',$v->create_time)}}</td>
 
                                 <td>
+                                    <a class="link-update" href="/typeadd/{{$v->id}}">添加分类</a>
                                     <a class="link-update" href="/typeUpdate/{{$v->id}}">修改</a>
                                     <a class="link-del" href="/typeDelete/{{$v->id}}">删除</a>
                                 </td>
