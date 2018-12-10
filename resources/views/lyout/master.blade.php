@@ -33,7 +33,7 @@
                     <li>
                         <a href="#"><i class="icon-font">&#xe003;</i>常用操作</a>
                         <ul class="sub-menu">
-                            <li><a href="privieges"><i class="icon-font">&#xe008;</i>导航管理</a></li>
+                            <li><a href="/privieges"><i class="icon-font">&#xe008;</i>导航管理</a></li>
                             <li><a href="/nav"><i class="icon-font">&#xe005;</i>轮播图管理</a></li>
                             <li><a href="/design"><i class="icon-font">&#xe006;</i>直播分类管理</a></li>
                         </ul>
