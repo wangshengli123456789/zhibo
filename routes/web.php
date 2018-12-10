@@ -48,3 +48,17 @@ Route::any('pridel/{id}',['uses'=>"PriviegesController@typeDelete"]);
 Route::any('pridelall',['uses'=>"PriviegesController@priTypeDelete"]);
 Route::any('priupdate/{id}',['uses'=>"PriviegesController@typeUpdate"]);
 Route::any('priupdatestatus',['uses'=>"PriviegesController@priupdatestatus"]);
+//用户管理
+//显示用户
+Route::any('adminindex',['uses'=>"AdminloginController@index"]);
+//添加跳转
+Route::any('admininsertadd',['uses'=>"AdminloginController@insertadd"]);
+//执行添加
+Route::any('admininset',['uses'=>"AdminloginController@insert"]);
+//执行删除
+Route::any('admindeletes',['uses'=>"AdminloginController@admindeletes"]);
+Route::any('admindelete/{id}',['uses'=>"AdminloginController@delete"]);
+//跳转修改
+Route::any('adminupdateadd/{id}',['uses'=>"AdminloginController@updateadd"]);
+//执行修改
+Route::any('adminupdate',['uses'=>"AdminloginController@update"]);
