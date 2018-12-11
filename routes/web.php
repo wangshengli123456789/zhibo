@@ -137,3 +137,17 @@ Route::any('helpsearch',['uses'=>"HelpController@prisearch"]);
 //下级添加分类
 Route::any('helpadds/{id}',['uses'=>"HelpController@priadd"]);
 
+//显示联系我们的页面
+Route::any('contact',['uses'=>"ContactController@nav"]);
+//联系我们管理
+Route::any('conadd',['uses'=>"ContactController@navadd"]);
+//删除联系我们
+Route::any('condel/{id}',['uses'=>"ContactController@navdel"]);
+//联系我们的批量删除
+Route::any('condelall',['uses'=>"ContactController@navdelall"]);
+//联系我们的修改
+Route::any('conpdate/{id}',['uses'=>"ContactController@navupdate"]);
+//联系我们的搜索
+Route::any('consearch',['uses'=>"ContactController@prisearch"]);
+//联系我们状态的修改
+Route::any('conupdatestatus',['uses'=>"ContactController@updatestatus"]);
