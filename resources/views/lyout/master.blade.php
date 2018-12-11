@@ -51,7 +51,7 @@
                         <a href="#"><i class="icon-font">&#xe018;</i>权限管理</a>
                         <ul class="sub-menu">
                             <li><a href="system.html"><i class="icon-font">&#xe017;</i>用户管理</a></li>
-                            <li><a href="system.html"><i class="icon-font">&#xe037;</i>角色管理</a></li>
+                            <li><a href="roleindex"><i class="icon-font">&#xe037;</i>角色管理</a></li>
                             <li><a href="system.html"><i class="icon-font">&#xe046;</i>权限管理</a></li>
                         </ul>
                     </li>

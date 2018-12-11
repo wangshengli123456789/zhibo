@@ -6,6 +6,8 @@
  * Time: 8:43
  */
 
+
+/*role*/
 namespace App\Http\Controllers;
 
 use App\Http\Models\Login;
@@ -71,6 +73,7 @@ class ZbtypeController
         }
     }
     /**
+     * echo date('Y-m-d H:i:s',strtotime('-1 day',time()));
      *删除的操作
      */
     public function typeDelete($id)

@@ -25,3 +25,13 @@ Route::any('zcTypeDelete',['uses'=>"ZbtypeController@zcTypeDelete"]);
 Route::any('typeDelete/{id}',['uses'=>"ZbtypeController@typeDelete"]);
 //直播作品的修改 typeUpdate
 Route::any('typeUpdate/{id}',['uses'=>"ZbtypeController@typeUpdate"]);
+
+
+//角色管理
+Route::get('roleindex',['user'=>"RoleController@0role"]);
+//添加
+Route::post('roleadd',['user'=>"RoleController@0add"]);
+//删除
+Route::get('roledelete',['user'=>"RoleController@0del"]);
+//修改
+Route::any('roleupdate',['user'=>"RoleController@0upd"]);
