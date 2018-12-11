@@ -12,7 +12,7 @@
                         <tr>
                             {{csrf_field()}}
                             <th width="70">关键字:</th>
-                            <td><input class="common-text" placeholder="关键字" name="keywords" value="" id="" type="text"></td>
+                            <td><input class="common-text" placeholder="导航名称" name="keywords" value="" id="" type="text"></td>
                             <td><input class="btn btn-primary btn2" name="sub" value="查询" type="submit"></td>
                         </tr>
                     </table>
@@ -33,7 +33,7 @@
                         <tr>
                             <th class="tc" width="5%"><input class="allChoose" name="" type="checkbox"></th>
                             <th>排序</th>
-                            <th>ID</th>
+                            <th>序号</th>
                             <th>导航名称</th>
                             <th>状态</th>
                             <th>添加时间</th>
@@ -52,7 +52,7 @@
                                 <td>{{date('Y-m-d H:i:s',$v->create_time)}}</td>
 
                                 <td>
-                                    <a class="link-update" href="/priadd/{{$v->id}}">添加下级导航</a> |
+                                    <a class="link-update" href="/priadds/{{$v->id}}">添加下级导航</a> |
                                     <a class="link-update" href="/priupdate/{{$v->id}}">修改</a> |
                                     <a class="link-del" href="/pridel/{{$v->id}}">删除</a>
                                 </td>

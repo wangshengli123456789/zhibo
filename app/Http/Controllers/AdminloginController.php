@@ -12,6 +12,7 @@ namespace App\Http\Controllers;
 use App\Http\Models\Adminlogin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\DB;
 
 class AdminloginController extends Controller
 {
@@ -29,13 +30,18 @@ class AdminloginController extends Controller
     public function insert(Request $request){
         $info = new Adminlogin();
         $res = $request->all();
-        $up =[
-            'name' => $res['name'],
-            'pwd' => $res['pwd'],
-            'create_time' => $res['create_time']
-        ];
-        $info->insert($up);
-        return redirect('adminindex');
+        $list = DB::table('zb_admin_login')->where('name',$res['name'])->first();
+        if(empty($list)){
+            $up =[
+                'name' => $res['name'],
+                'pwd' => $res['pwd'],
+                'create_time' => $res['create_time']
+            ];
+            $info->insert($up);
+            return redirect('adminindex');
+        }else{
+            echo "用户名已存在，请重新输入！！";
+        }
     }
     //删除
     public function delete($id){
@@ -64,13 +70,25 @@ class AdminloginController extends Controller
     public function update(Request $request){
         $model = new Adminlogin();
         $res = $request->all();
-        $data =[
-            'name' => $res['name'],
-            'pwd' => $res['pwd'],
-            'create_time' => $res['create_time']
-        ];
-        $id = $res['id'];
-        $list = $model->update($id,$data);
-        return redirect('adminindex');
+        $list = DB::table('zb_admin_login')->where('name',$res['name'])->first();
+        if(empty($list)){
+            $data =[
+                'name' => $res['name'],
+                'pwd' => $res['pwd'],
+                'create_time' => $res['create_time']
+            ];
+            $id = $res['id'];
+            $list = $model->update($id,$data);
+            return redirect('adminindex');
+        }else{
+            echo "用户名已存在，请重新输入！！";
+        }
+    }
+    //搜索
+    public function search(Request $request){
+        $res = $request->all();
+        $a = $res["name"];
+        $list = DB::select("select * from  zb_admin_login where name like '%$a%'");
+        return view('admin/index',['list'=>$list]);
     }
 }

@@ -33,7 +33,7 @@
                         <tr>
                             <th class="tc" width="5%"><input class="allChoose" name="" type="checkbox"></th>
                             <th>排序</th>
-                            <th>ID</th>
+                            <th>序号</th>
                             <th>标题</th>
                             <th>状态</th>
                             <th>添加时间</th>
