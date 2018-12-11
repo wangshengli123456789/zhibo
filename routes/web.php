@@ -25,6 +25,18 @@ Route::any('zcTypeDelete',['uses'=>"ZbtypeController@zcTypeDelete"]);
 Route::any('typeDelete/{id}',['uses'=>"ZbtypeController@typeDelete"]);
 //直播作品的修改 typeUpdate
 Route::any('typeUpdate/{id}',['uses'=>"ZbtypeController@typeUpdate"]);
+
+
+//角色管理
+Route::get('roleindex',['user'=>"RoleController@0role"]);
+//添加
+Route::post('roleadd',['user'=>"RoleController@0add"]);
+//删除
+Route::get('roledelete',['user'=>"RoleController@0del"]);
+//修改
+
+
+Route::any('roleupdate',['user'=>"RoleController@0upd"]);
 //直播类型的状态改变
 Route::any('updatetypestatus',['uses'=>"ZbtypeController@updatetypestatus"]);
 //直播类型的搜索
@@ -63,6 +75,7 @@ Route::any('priupdatestatus',['uses'=>"PriviegesController@priupdatestatus"]);
 Route::any('prisearch',['uses'=>"PriviegesController@prisearch"]);
 //下级添加分类
 Route::any('priadds/{id}',['uses'=>"PriviegesController@priadd"]);
+Route::any('priadd/{id}',['uses'=>"PriviegesController@priadd"]);
 //用户管理
 //显示用户
 Route::any('adminindex',['uses'=>"AdminloginController@index"]);
@@ -77,7 +90,6 @@ Route::any('admindelete/{id}',['uses'=>"AdminloginController@delete"]);
 Route::any('adminupdateadd/{id}',['uses'=>"AdminloginController@updateadd"]);
 //执行修改
 Route::any('adminupdate',['uses'=>"AdminloginController@update"]);
-
 //帮助中心的增删改查
 Route::any('helpindex',['uses'=>"HelpController@helpindex"]);
 //添加
