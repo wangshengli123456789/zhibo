@@ -8,7 +8,7 @@
         <div class="result-content">
             <div class="short-wrap">
                 <a href="/priadd"><i class="icon-font">&#xe001;</i>新增导航</a>
-                <a href="/navadd"><i class="icon-font">&#xe005;</i>新增轮播图</a>
+                <a href="/navadd "><i class="icon-font">&#xe005;</i>新增轮播图</a>
                 <a href="/zb_insert_type"><i class="icon-font">&#xe048;</i>新增直播分类</a>
                 {{--<a href="#"><i class="icon-font">&#xe041;</i>新增博客分类</a>--}}
                 {{--<a href="#"><i class="icon-font">&#xe01e;</i>作品评论</a>--}}

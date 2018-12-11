@@ -25,7 +25,7 @@
                     <div class="result-list">
                         {{csrf_field()}}
                         <a href="/priadd"><i class="icon-font"></i>新增导航分类</a>
-                        <a id="batchDel" href="javascript:void(0)" onclick="$('#myform').submit()"><i class="icon-font" ></i>批量删除</a>
+                        <a id="batchDel" href="javascript:void(0)" onclick="if (confirm('确定删除吗?')) {$('#myform').submit()}"><i class="icon-font" ></i>批量删除</a>
                     </div>
                 </div>
                 <div class="result-content">
