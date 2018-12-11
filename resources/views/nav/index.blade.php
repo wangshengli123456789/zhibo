@@ -1,15 +1,32 @@
 @extends('lyout.master')
 @section('content')
     <div class="main-wrap">
+        <style>
+            .pagination li {
+                text-align: center;
+                margin-top: 28px;
+                padding:10px 20px;
+                border: 2px solid red;
+                border-radius: 10%;
+                font-size: 16px;
+                float: left;
+            }
+            .pagination li:hover{
+                background: red;
+            }
+            .pagination li span{
 
+            }
+        </style>
         <div class="crumb-wrap">
             <div class="crumb-list"><i class="icon-font"></i><a href="/index">首页</a><span class="crumb-step">&gt;</span><span class="crumb-name">轮播图管理</span></div>
         </div>
         <div class="search-wrap">
             <div class="search-content">
-                <form action="" method="post">
+                <form action="/navsearch" method="post">
                     <table class="search-tab">
                         <tr>
+                            {{csrf_field()}}
                             <th width="70">关键字:</th>
                             <td><input class="common-text" placeholder="关键字" name="keywords" value="" id="" type="text"></td>
                             <td><input class="btn btn-primary btn2" name="sub" value="查询" type="submit"></td>
@@ -24,7 +41,7 @@
                     <div class="result-list">
                         {{csrf_field()}}
                         <a href="/navadd"><i class="icon-font"></i>新增轮播图</a>
-                        <a id="batchDel" href="javascript:void(0)" onclick="$('#myform').submit()"><i class="icon-font" ></i>批量删除</a>
+                        <a id="batchDel" href="javascript:void(0)" onclick="if (confirm('确定删除吗?')) {$('#myform').submit()}"><i class="icon-font" ></i>批量删除</a>
                     </div>
                 </div>
                 <div class="result-content">
@@ -64,8 +81,10 @@
                     </table>
                 </div>
             </form>
+            {{$list->render()}}
         </div>
     </div>
+
     <script src="http://www.jq22.com/jquery/jquery-3.3.1.js"></script>
     <script>
         // //全选的方法

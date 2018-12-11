@@ -83,4 +83,12 @@ class Nav
         $res = DB::table('zb_nav_picture')->where('id',$id)->update($data);
         return $res;
     }
+    /**
+     * 搜索信息
+     */
+    public static function typeSelect($data)
+    {
+        $res = DB::table('zb_nav_picture')->where('nav_name','like','%'.$data.'%')->paginate(5);
+        return $res;
+    }
 }

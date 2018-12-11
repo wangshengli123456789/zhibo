@@ -11,6 +11,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Models\Login;
 use App\Http\Requests\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
@@ -28,6 +29,14 @@ class LoginController extends Controller
             //查询登录信息
             $res = Login::loginAdmin($data);
             if ($res['stu']==100){
+                //将登陆信息写入日志文件中
+                $array=array(
+                    'username'=>$data['username'],
+                    'host'=>$_SERVER['REMOTE_ADDR'],
+                    'login_time'=>time(),
+                );
+                Session::put('date',$array['login_time']);
+                DB::table('zb_login_log')->insert($array);
                 return redirect('index');
             }else{
                 echo "<script>alert('账号或者密码错误');history.back(-1)</script>";
@@ -42,14 +51,18 @@ class LoginController extends Controller
      */
     public function index()
     {
-        date_default_timezone_set('Asia/shanghai');
         $array=array(
             'server'=>$_SERVER['SystemRoot'],
             'apache'=>$_SERVER['SERVER_SOFTWARE'],
             'addrname'=>$_SERVER['SERVER_ADDR'],
             'host'=>$_SERVER['REMOTE_ADDR'],
             'name'=>$_SERVER['SERVER_NAME'],
-            'create_time'=>date('Y-m-d H:i:s')
+            'create_time'=>date('Y-m-d H:i:s',Session::get('date')),
+            'php'=>$_SERVER['SERVER_SIGNATURE'],
+            'dbcontent'=>$_SERVER['DB_CONNECTION'],
+            'dbport'=>$_SERVER['DB_PORT'],
+            'database'=>$_SERVER['DB_DATABASE'],
+            'filesize'=>ini_get('upload_max_filesize'),
         );
         return view('login/index',['data'=>$array]);
     }

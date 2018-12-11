@@ -27,9 +27,28 @@ Route::any('zcTypeDelete',['uses'=>"ZbtypeController@zcTypeDelete"]);
 Route::any('typeDelete/{id}',['uses'=>"ZbtypeController@typeDelete"]);
 //直播作品的修改 typeUpdate
 Route::any('typeUpdate/{id}',['uses'=>"ZbtypeController@typeUpdate"]);
+
+
+//角色管理
+Route::get('roleindex',['user'=>"RoleController@0role"]);
+//添加
+Route::post('roleadd',['user'=>"RoleController@0add"]);
+//删除
+Route::get('roledelete',['user'=>"RoleController@0del"]);
+//修改
+
+
+Route::any('roleupdate',['user'=>"RoleController@0upd"]);
 //直播类型的状态改变
 Route::any('updatetypestatus',['uses'=>"ZbtypeController@updatetypestatus"]);
 
+
+
+
+//直播类型的搜索
+Route::any('typesearch',['uses'=>"ZbtypeController@typesearch"]);
+//直播分类的夏季添加
+Route::any('typeadd/{id}',['uses'=>"ZbtypeController@priadd"]);
 
 //显示轮播图的页面
 Route::any('nav',['uses'=>"NavController@nav"]);
@@ -41,17 +60,31 @@ Route::any('navdel/{id}',['uses'=>"NavController@navdel"]);
 Route::any('navdelall',['uses'=>"NavController@navdelall"]);
 //轮播图的修改
 Route::any('navpdate/{id}',['uses'=>"NavController@navupdate"]);
+//轮播图的搜索
+Route::any('navsearch',['uses'=>"NavController@navsearch"]);
 //轮播图状态的修改
 Route::any('updatestatus',['uses'=>"NavController@updatestatus"]);
 //系统设置界面的显示
 Route::any('system',['uses'=>"SystemController@systemindex"]);
 //导航栏的显示
 Route::any('privieges',['uses'=>"PriviegesController@priIndex"]);
+//添加
 Route::any('priadd',['uses'=>"PriviegesController@priInsertType"]);
+//删除
 Route::any('pridel/{id}',['uses'=>"PriviegesController@typeDelete"]);
+//批量删除
 Route::any('pridelall',['uses'=>"PriviegesController@priTypeDelete"]);
+//修改
 Route::any('priupdate/{id}',['uses'=>"PriviegesController@typeUpdate"]);
+//更改状态
 Route::any('priupdatestatus',['uses'=>"PriviegesController@priupdatestatus"]);
+
+
+
+//搜索
+Route::any('prisearch',['uses'=>"PriviegesController@prisearch"]);
+//下级添加分类
+Route::any('priadd/{id}',['uses'=>"PriviegesController@priadd"]);
 
 
 
@@ -72,6 +105,7 @@ Route::any('adminupdate',['uses'=>"AdminloginController@update"]);
 
 
 
+
 //权限管理
 //显示权限
 Route::any('privilegeindex',['uses'=>"PrivilegeController@index"]);
@@ -86,3 +120,4 @@ Route::any('privilegedelete/{id}',['uses'=>"PrivilegeController@delete"]);
 Route::any('privilegeupdateadd/{id}',['uses'=>"PrivilegeController@updateadd"]);
 //执行修改
 Route::any('privilegeupdate',['uses'=>"PrivilegeController@update"]);
+

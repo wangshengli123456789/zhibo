@@ -6,6 +6,8 @@
  * Time: 8:43
  */
 
+
+/*role*/
 namespace App\Http\Controllers;
 
 use App\Http\Models\Login;
@@ -28,6 +30,11 @@ class ZbtypeController
     {
         if (request()->isMethod('post')){
             $data=\request()->only('pid','zb_name','sort','create_time');
+            //查询该分类是否添加
+            $info = Login::typeRead($data['pid'],$data['zb_name']);
+            if ($info){
+                echo "<script>alert('该分类已存在，请重新添加');history.back(-1);</script>";die;
+            }
             //调用模型添加分类数据
             $res = Login::typeAdd($data);
             if ($res){
@@ -58,6 +65,10 @@ class ZbtypeController
     {
         if (request()->isMethod('post')){
             $data = request()->only('pid','zb_name','sort','create_time');
+            $info = Login::typeRead($data['pid'],$data['zb_name']);
+            if ($info){
+                echo "<script>alert('该分类已存在，请重新添加');history.back(-1);</script>";die;
+            }
             $res = Login::typeUpdate($id,$data);
             if ($res){
                 return redirect('design');
@@ -71,6 +82,7 @@ class ZbtypeController
         }
     }
     /**
+     * echo date('Y-m-d H:i:s',strtotime('-1 day',time()));
      *删除的操作
      */
     public function typeDelete($id)
@@ -89,6 +101,41 @@ class ZbtypeController
         $res = Login::updatestatus($id);
         if ($res){
             return $res;
+        }
+    }
+    /**
+     * 搜索功能的实现
+     */
+    public function typesearch()
+    {
+        $data = \request()->only('keywords');
+        if (empty($data['keywords'])){
+            $res = Login::protype();
+        }else{
+            $res = Login::typeSelect($data['keywords']);
+        }
+
+        return view('login/design',['list'=>$res]);
+    }
+    /**
+     * 根据上级分类pid来添加数据
+     */
+    public function priadd($id)
+    {
+        if (request()->isMethod('post')){
+            $data=\request()->only('zb_name','sort','create_time');
+            //调用模型添加分类数据
+            $info = Login::typeRead($id,$data['zb_name']);
+            if ($info){
+                echo "<script>alert('该分类已存在，请重新添加');history.back(-1);</script>";die;
+            }
+            $data['pid'] = $id;
+            $res = Login::typeAdd($data);
+            if ($res){
+                return redirect('design');
+            }
+        }else{
+            return view('login/add');
         }
     }
 }
