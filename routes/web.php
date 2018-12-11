@@ -18,6 +18,8 @@ Route::any('index',['uses'=>"LoginController@index"]);
 Route::any('exit',['uses'=>"LoginController@exits"]);
 //显示分类的界面
 Route::any('design',['uses'=>"ZbtypeController@design"]);
+
+
 //直播作品分类的新增 zb_insert
 Route::any('zb_insert_type',['uses'=>"ZbtypeController@zbInsertType"]);
 //直播作品的批量删除
@@ -27,6 +29,8 @@ Route::any('typeDelete/{id}',['uses'=>"ZbtypeController@typeDelete"]);
 Route::any('typeUpdate/{id}',['uses'=>"ZbtypeController@typeUpdate"]);
 //直播类型的状态改变
 Route::any('updatetypestatus',['uses'=>"ZbtypeController@updatetypestatus"]);
+
+
 //显示轮播图的页面
 Route::any('nav',['uses'=>"NavController@nav"]);
 //轮播图管理
@@ -48,6 +52,9 @@ Route::any('pridel/{id}',['uses'=>"PriviegesController@typeDelete"]);
 Route::any('pridelall',['uses'=>"PriviegesController@priTypeDelete"]);
 Route::any('priupdate/{id}',['uses'=>"PriviegesController@typeUpdate"]);
 Route::any('priupdatestatus',['uses'=>"PriviegesController@priupdatestatus"]);
+
+
+
 //用户管理
 //显示用户
 Route::any('adminindex',['uses'=>"AdminloginController@index"]);
@@ -62,3 +69,20 @@ Route::any('admindelete/{id}',['uses'=>"AdminloginController@delete"]);
 Route::any('adminupdateadd/{id}',['uses'=>"AdminloginController@updateadd"]);
 //执行修改
 Route::any('adminupdate',['uses'=>"AdminloginController@update"]);
+
+
+
+//权限管理
+//显示权限
+Route::any('privilegeindex',['uses'=>"PrivilegeController@index"]);
+//添加跳转
+Route::any('privilegeinsertadd',['uses'=>"PrivilegeController@insertadd"]);
+//执行添加
+Route::any('privilegeinset',['uses'=>"PrivilegeController@insert"]);
+//执行删除
+Route::any('privilegedeletes',['uses'=>"PrivilegeController@privilegedeletes"]);
+Route::any('privilegedelete/{id}',['uses'=>"PrivilegeController@delete"]);
+//跳转修改
+Route::any('privilegeupdateadd/{id}',['uses'=>"PrivilegeController@updateadd"]);
+//执行修改
+Route::any('privilegeupdate',['uses'=>"PrivilegeController@update"]);

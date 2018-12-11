@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\DB;
 
 class Adminlogin
 {
-    //显示
+    //显示zb_privilege
     public function index(){
         $list = DB::table('zb_admin_login')->get();
         return $list;
