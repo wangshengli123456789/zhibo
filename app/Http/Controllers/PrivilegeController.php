@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\DB;
 
 class PrivilegeController extends Controller
 {
-    //显示数据
+    //显示数据123123
     public function index(){
         $model = new Privilege();
         $list = $model->index();
