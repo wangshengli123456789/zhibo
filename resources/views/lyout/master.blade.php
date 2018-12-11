@@ -2,9 +2,9 @@
     <head>
         <meta charset="UTF-8">
         <title>后台管理</title>
-        <link rel="stylesheet" type="text/css" href="{{asset('login')}}/css/common.css"/>
-        <link rel="stylesheet" type="text/css" href="{{asset('login')}}/css/main.css"/>
-        <script type="text/javascript" src="{{asset('login')}}/js/libs/modernizr.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="{{asset('admin')}}/css/common.css"/>
+        <link rel="stylesheet" type="text/css" href="{{asset('admin')}}/css/main.css"/>
+        <script type="text/javascript" src="{{asset('admin')}}/js/libs/modernizr.min.js"></script>
     </head>
 <body>
     <div class="topbar-wrap white">
@@ -33,25 +33,25 @@
                     <li>
                         <a href="#"><i class="icon-font">&#xe003;</i>常用操作</a>
                         <ul class="sub-menu">
-                            <li><a href="design.html"><i class="icon-font">&#xe008;</i>直播作品管理</a></li>
-                            <li><a href="design.html"><i class="icon-font">&#xe005;</i>博文管理</a></li>
+                            <li><a href="/privieges"><i class="icon-font">&#xe008;</i>导航管理</a></li>
+                            <li><a href="/nav"><i class="icon-font">&#xe005;</i>轮播图管理</a></li>
                             <li><a href="/design"><i class="icon-font">&#xe006;</i>直播分类管理</a></li>
                         </ul>
                     </li>
                     <li>
                         <a href="#"><i class="icon-font">&#xe018;</i>系统管理</a>
                         <ul class="sub-menu">
-                            <li><a href="system.html"><i class="icon-font">&#xe017;</i>系统设置</a></li>
-                            {{--<li><a href="system.html"><i class="icon-font">&#xe037;</i>清理缓存</a></li>--}}
-                            {{--<li><a href="system.html"><i class="icon-font">&#xe046;</i>数据备份</a></li>--}}
+                            <li><a href="/system"><i class="icon-font">&#xe017;</i>系统设置</a></li>
+                            <li><a href="system.html"><i class="icon-font">&#xe037;</i>帮助中心</a></li>
+                            <li><a href="system.html"><i class="icon-font">&#xe046;</i>联系我们</a></li>
                             {{--<li><a href="system.html"><i class="icon-font">&#xe045;</i>数据还原</a></li>--}}
                         </ul>
                     </li>
                     <li>
                         <a href="#"><i class="icon-font">&#xe018;</i>权限管理</a>
                         <ul class="sub-menu">
-                            <li><a href="system.html"><i class="icon-font">&#xe017;</i>用户管理</a></li>
-                            <li><a href="roleindex"><i class="icon-font">&#xe037;</i>角色管理</a></li>
+                            <li><a href="/adminindex"><i class="icon-font">&#xe017;</i>用户管理</a></li>
+                            <li><a href="/roleindex"><i class="icon-font">&#xe037;</i>角色管理</a></li>
                             <li><a href="system.html"><i class="icon-font">&#xe046;</i>权限管理</a></li>
                         </ul>
                     </li>

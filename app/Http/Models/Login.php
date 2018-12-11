@@ -68,6 +68,14 @@ class Login
         }
         return $array;
     }
+    /*
+     * 查询该分类是否添加到表中
+     */
+    public static function typeRead($pid,$name)
+    {
+        $res = DB::table('zb_type')->where(['pid'=>$pid,'zb_name'=>$name])->first();
+        return $res;
+    }
     /**
      * 将分类信息添加到数据表中
      */
@@ -82,6 +90,11 @@ class Login
     public static function deleteType($id)
     {
         $res = DB::table('zb_type')->delete($id);
+        return $res;
+    }
+    public static function deleteTypes($id)
+    {
+        $res = DB::table('zb_type')->whereIn('id',$id)->delete();
         return $res;
     }
     /**
@@ -99,5 +112,29 @@ class Login
     {
         $res = DB::table('zb_type')->where('id',$id)->update($data);
         return $res;
+    }
+
+    /**
+     * 修改状态信息
+     * @param $data
+     * @return int
+     */
+    public static function updatestatus($data)
+    {
+        if ($data['status']=='0'){
+            $res = DB::table('zb_type')->where('id',$data['id'])->increment('status','1');
+        }else{
+            $res = DB::table('zb_type')->where('id',$data['id'])->decrement('status','1');
+        }
+        return $res;
+    }
+    /**
+     * 搜索信息
+     */
+    public static function typeSelect($data)
+    {
+        $res = DB::table('zb_type')->where('zb_name','like','%'.$data.'%')->get();
+        $ress = self::getTree($res);
+        return $ress;
     }
 }
