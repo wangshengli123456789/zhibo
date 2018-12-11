@@ -3,46 +3,63 @@
     <div class="main-wrap">
 
         <div class="crumb-wrap">
-            <div class="crumb-list"><i class="icon-font"></i><a href="/jscss/admin/design/">首页</a><span class="crumb-step">&gt;</span><a class="crumb-name" href="/jscss/admin/design/">作品管理</a><span class="crumb-step">&gt;</span><span>新增作品</span></div>
+            <div class="crumb-list"><i class="icon-font"></i><a href="/jscss/admin">首页</a><span class="crumb-step">&gt;</span><span class="crumb-name">角色管理</span></div>
         </div>
-        <div class="result-wrap">
-            <div class="result-content">
-                <form action="" method="post" id="myform" name="myform" enctype="multipart/form-data">
-                    <table class="insert-tab" width="100%">
-                        {{csrf_field()}}
-                        <tbody>
+        <div class="search-wrap">
+            <div class="search-content">
+                <form action="" method="post">
+                    <table class="search-tab">
                         <tr>
-                            <th width="120"><i class="require-red">*</i>上级分类：</th>
-                            <td>
-                                <select name="pid" id="catid" class="required">
-                                    @foreach($list as $k=>$v)
-                                        <option value="{{$v->id}}">{{str_repeat('--|',$v->level)}}{{$v->zb_name}}</option>
-                                    @endforeach
-                                </select>
-                            </td>
+                            <th width="70">关键字:</th>
+                            <td><input class="common-text" placeholder="关键字" name="keywords" value="" id="" type="text"></td>
+                            <td><input class="btn btn-primary btn2" name="sub" value="查询" type="submit"></td>
                         </tr>
-                        <tr>
-                            <th><i class="require-red">*</i>分类名称：</th>
-                            <td>
-                                <input class="common-text required" id="title" name="zb_name" size="50" value="" type="text">
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>排序：</th>
-                            <td><input class="common-text" name="sort" size="50" value="10" type="text"></td>
-                        </tr>
-                        <input type="hidden" value="{{time()}}" name="create_time">
-                        <tr>
-                            <th></th>
-                            <td>
-                                <input class="btn btn-primary btn6 mr10" value="提交" type="submit">
-                                <input class="btn btn6" onclick="history.go(-1)" value="返回" type="button">
-                            </td>
-                        </tr>
-                        </tbody></table>
+                    </table>
                 </form>
             </div>
         </div>
-
+        <div class="result-wrap">
+            <form name="myform" id="myform" method="post" action="/roledeletes">
+                <div class="result-title">
+                    <div class="result-list">
+                        {{csrf_field()}}
+                        <a href="/roleinsertadd"><i class="icon-font"></i>新增用户分类</a>
+                        <a id="batchDel" href="javascript:void(0)" onclick="$('#myform').submit()"><i class="icon-font" ></i>批量删除</a>
+                    </div>
+                </div>
+                <div class="result-content">
+                    <table class="result-tab" width="100%">
+                        <tr>
+                            <th class="tc" width="5%"><input class="allChoose" name="" type="checkbox"></th>
+                            <th>ID</th>
+                            <th>角色名称</th>
+                            <th>添加时间</th>
+                            <th>操作</th>
+                        </tr>
+                        @foreach($list as $k=>$v)
+                            <tr>
+                                <td class="tc"><input class="ids" value="{{$v->r_id}}" name="id[]" type="checkbox"></td>
+                                <td>{{$v->r_id}}</td>
+                                <td>{{$v->r_name}}</td>
+                                <td>{{date('Y-m-d H:i:s',$v->create_time)}}</td>
+                                <td>
+                                    <a class="link-update" href="/roleupdateadd/{{$v->r_id}}">修改</a>
+                                    <a class="link-del" href="/roledelete/{{$v->r_id}}">删除</a>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </table>
+                </div>
+            </form>
+        </div>
     </div>
+    <script src="http://www.jq22.com/jquery/jquery-3.3.1.js"></script>
+    <script>
+        // //全选的方法
+        $('.allChoose').click(function(){
+            var oC = $(this).prop('checked');
+            $('.ids').prop('checked',oC);
+        });
+    </script>
+    <!--/main-->
 @endsection
