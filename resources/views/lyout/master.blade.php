@@ -42,7 +42,7 @@
                         <a href="#"><i class="icon-font">&#xe018;</i>系统管理</a>
                         <ul class="sub-menu">
                             <li><a href="/system"><i class="icon-font">&#xe017;</i>系统设置</a></li>
-                            <li><a href="system.html"><i class="icon-font">&#xe037;</i>帮助中心</a></li>
+                            <li><a href="/helpindex"><i class="icon-font">&#xe037;</i>帮助中心</a></li>
                             <li><a href="system.html"><i class="icon-font">&#xe046;</i>联系我们</a></li>
                             {{--<li><a href="system.html"><i class="icon-font">&#xe045;</i>数据还原</a></li>--}}
                         </ul>

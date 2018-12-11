@@ -84,10 +84,14 @@ Route::any('priupdatestatus',['uses'=>"PriviegesController@priupdatestatus"]);
 //搜索
 Route::any('prisearch',['uses'=>"PriviegesController@prisearch"]);
 //下级添加分类
+Route::any('priadds/{id}',['uses'=>"PriviegesController@priadd"]);
 Route::any('priadd/{id}',['uses'=>"PriviegesController@priadd"]);
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> 94564de353a38e1785344cc1870cc5be35a1750a
 //用户管理
 //显示用户
 Route::any('adminindex',['uses'=>"AdminloginController@index"]);
@@ -102,6 +106,7 @@ Route::any('admindelete/{id}',['uses'=>"AdminloginController@delete"]);
 Route::any('adminupdateadd/{id}',['uses'=>"AdminloginController@updateadd"]);
 //执行修改
 Route::any('adminupdate',['uses'=>"AdminloginController@update"]);
+<<<<<<< HEAD
 
 
 
@@ -121,3 +126,21 @@ Route::any('privilegeupdateadd/{id}',['uses'=>"PrivilegeController@updateadd"]);
 //执行修改
 Route::any('privilegeupdate',['uses'=>"PrivilegeController@update"]);
 
+=======
+//帮助中心的增删改查
+Route::any('helpindex',['uses'=>"HelpController@helpindex"]);
+//添加
+Route::any('helpadd',['uses'=>"HelpController@priInsertType"]);
+//删除
+Route::any('helpdel/{id}',['uses'=>"HelpController@typeDelete"]);
+//批量删除
+Route::any('helpdelall',['uses'=>"HelpController@priTypeDelete"]);
+//修改
+Route::any('helpupdate/{id}',['uses'=>"HelpController@typeUpdate"]);
+//更改状态
+Route::any('helpupdatestatus',['uses'=>"HelpController@priupdatestatus"]);
+//搜索
+Route::any('helpsearch',['uses'=>"HelpController@prisearch"]);
+//下级添加分类
+Route::any('helpadds/{id}',['uses'=>"HelpController@priadd"]);
+>>>>>>> 94564de353a38e1785344cc1870cc5be35a1750a
