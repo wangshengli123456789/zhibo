@@ -63,6 +63,9 @@
                 <li>
                     <label class="res-lab">官方交流网站：</label><span class="res-info"><a href="{{$data['name']}}" target="_blank">{{$data['name']}}</a></span>
                 </li>
+                <li>
+                    <label class="res-lab">网站二维码：</label><img src="{{asset('navupload')}}/1544530624.png" alt="" width="150" height="150">
+                </li>
             </ul>
         </div>
     </div>
