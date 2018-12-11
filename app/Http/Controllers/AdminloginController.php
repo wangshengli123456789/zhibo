@@ -84,4 +84,11 @@ class AdminloginController extends Controller
             echo "用户名已存在，请重新输入！！";
         }
     }
+    //搜索
+    public function search(Request $request){
+        $res = $request->all();
+        $a = $res["name"];
+        $list = DB::select("select * from  zb_admin_login where name like '%$a%'");
+        return view('admin/index',['list'=>$list]);
+    }
 }

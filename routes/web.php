@@ -43,11 +43,9 @@ Route::any('roleupdate',['user'=>"RoleController@0upd"]);
 Route::any('updatetypestatus',['uses'=>"ZbtypeController@updatetypestatus"]);
 
 
-
-
 //直播类型的搜索
 Route::any('typesearch',['uses'=>"ZbtypeController@typesearch"]);
-//直播分类的夏季添加
+//直播分类的下级添加
 Route::any('typeadd/{id}',['uses'=>"ZbtypeController@priadd"]);
 
 //显示轮播图的页面
@@ -66,6 +64,8 @@ Route::any('navsearch',['uses'=>"NavController@navsearch"]);
 Route::any('updatestatus',['uses'=>"NavController@updatestatus"]);
 //系统设置界面的显示
 Route::any('system',['uses'=>"SystemController@systemindex"]);
+
+
 //导航栏的显示
 Route::any('privieges',['uses'=>"PriviegesController@priIndex"]);
 //添加
@@ -103,6 +103,8 @@ Route::any('admindelete/{id}',['uses'=>"AdminloginController@delete"]);
 Route::any('adminupdateadd/{id}',['uses'=>"AdminloginController@updateadd"]);
 //执行修改
 Route::any('adminupdate',['uses'=>"AdminloginController@update"]);
+//搜索
+Route::any('adminsearch',['uses'=>"AdminloginController@search"]);
 
 
 //权限管理
@@ -119,6 +121,8 @@ Route::any('privilegedelete/{id}',['uses'=>"PrivilegeController@delete"]);
 Route::any('privilegeupdateadd/{id}',['uses'=>"PrivilegeController@updateadd"]);
 //执行修改
 Route::any('privilegeupdate',['uses'=>"PrivilegeController@update"]);
+//搜索
+Route::any('privilegesearch',['uses'=>"PrivilegeController@search"]);
 
 //帮助中心的增删改查
 Route::any('helpindex',['uses'=>"HelpController@helpindex"]);

@@ -6,13 +6,13 @@
                 text-align: center;
                 margin-top: 28px;
                 padding:10px 20px;
-                border: 2px solid red;
+                border: 2px solid #6dd4ff;
                 border-radius: 10%;
                 font-size: 16px;
                 float: left;
             }
             .pagination li:hover{
-                background: red;
+                background: #70e5ff;
             }
             .pagination li span{
 

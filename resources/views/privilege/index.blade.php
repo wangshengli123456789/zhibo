@@ -1,18 +1,35 @@
 @extends('lyout.master')
 @section('content')
     <div class="main-wrap">
+        <style>
+            .pagination li {
+                text-align: center;
+                margin-top: 28px;
+                padding:10px 20px;
+                border: 2px solid #6dd4ff;
+                border-radius: 10%;
+                font-size: 16px;
+                float: left;
+            }
+            .pagination li:hover{
+                background: #70e5ff;
+            }
+            .pagination li span{
 
+            }
+        </style>
         <div class="crumb-wrap">
             <div class="crumb-list"><i class="icon-font"></i><a href="/jscss/admin">首页</a><span class="crumb-step">&gt;</span><span class="crumb-name">权限管理</span></div>
         </div>
         <div class="search-wrap">
             <div class="search-content">
-                <form action="" method="post">
+                <form action="/privilegesearch" method="post">
                     <table class="search-tab">
+                        {{csrf_field()}}
                         <tr>
                             <th width="70">关键字:</th>
-                            <td><input class="common-text" placeholder="关键字" name="keywords" value="" id="" type="text"></td>
-                            <td><input class="btn btn-primary btn2" name="sub" value="查询" type="submit"></td>
+                            <td><input class="common-text" placeholder="关键字" name="p_name" value="" id="" type="text"></td>
+                            <td><input class="btn btn-primary btn2" name="" value="查询" type="submit"></td>
                         </tr>
                     </table>
                 </form>
@@ -51,6 +68,7 @@
                     </table>
                 </div>
             </form>
+            {{$list->render()}}
         </div>
     </div>
     <script src="http://www.jq22.com/jquery/jquery-3.3.1.js"></script>
