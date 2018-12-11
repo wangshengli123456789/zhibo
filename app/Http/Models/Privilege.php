@@ -15,7 +15,7 @@ class Privilege
 {
     //显示zb_privilege
     public function index(){
-        $list = DB::table('zb_privilege')->get();
+        $list = DB::table('zb_privilege')->paginate(2);
         return $list;
     }
     //添加

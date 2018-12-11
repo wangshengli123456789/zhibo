@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\DB;
 
 class PrivilegeController extends Controller
 {
-    //显示数据123123
+    //显示数据
     public function index(){
         $model = new Privilege();
         $list = $model->index();
@@ -81,5 +81,12 @@ class PrivilegeController extends Controller
         }else{
             echo "权限名已存在，请重新输入！！";
         }
+    }
+    //搜索
+    public function search(Request $request){
+        $res = $request->all();
+        $a = $res["p_name"];
+        $list = DB::select("select * from  zb_privilege where p_name like '%$a%'");
+        return view('privilege/index',['list'=>$list]);
     }
 }

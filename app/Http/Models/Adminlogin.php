@@ -15,7 +15,7 @@ class Adminlogin
 {
     //显示zb_privilege
     public function index(){
-        $list = DB::table('zb_admin_login')->get();
+        $list = DB::table('zb_admin_login')->paginate(2);
         return $list;
     }
     //添加
