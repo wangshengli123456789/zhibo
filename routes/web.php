@@ -30,15 +30,23 @@ Route::any('typeUpdate/{id}',['uses'=>"ZbtypeController@typeUpdate"]);
 
 
 //角色管理
-Route::get('roleindex',['user'=>"RoleController@0role"]);
-//添加
-Route::post('roleadd',['user'=>"RoleController@0add"]);
-//删除
-Route::get('roledelete',['user'=>"RoleController@0del"]);
-//修改
+//显示角色
+Route::any('roleindex',['uses'=>"RoleController@index"]);
+//添加跳转
+Route::any('roleinsertadd',['uses'=>"RoleController@insertadd"]);
+//执行添加
+Route::any('roleinset',['uses'=>"RoleController@insert"]);
+//执行删除
+Route::any('roledeletes',['uses'=>"RoleController@admindeletes"]);
+Route::any('roledelete/{id}',['uses'=>"RoleController@delete"]);
+//跳转修改
+Route::any('roleupdateadd/{id}',['uses'=>"RoleController@updateadd"]);
+//执行修改
+Route::any('roleupdate',['uses'=>"RoleController@update"]);
+//搜索
+Route::any('rolesearch',['uses'=>"RoleController@search"]);
 
 
-Route::any('roleupdate',['user'=>"RoleController@0upd"]);
 //直播类型的状态改变
 Route::any('updatetypestatus',['uses'=>"ZbtypeController@updatetypestatus"]);
 
