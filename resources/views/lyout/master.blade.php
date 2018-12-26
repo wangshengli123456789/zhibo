@@ -36,6 +36,7 @@
                             <li><a href="/privieges"><i class="icon-font">&#xe008;</i>导航管理</a></li>
                             <li><a href="/nav"><i class="icon-font">&#xe005;</i>轮播图管理</a></li>
                             <li><a href="/design"><i class="icon-font">&#xe006;</i>直播分类管理</a></li>
+                            <li><a href="/vedio"><i class="icon-font">&#xe006;</i>视频管理</a></li>
                         </ul>
                     </li>
                     <li>
