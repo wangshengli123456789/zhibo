@@ -11,6 +11,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Models\Login;
 use App\Http\Models\Video;
+use App\Http\Requests\Request;
 use App\Http\Controllers\QiniuController;
 class VideoController extends Controller
 {
@@ -49,7 +50,7 @@ class VideoController extends Controller
             $info['nav_picture'] ='http://'.$_SERVER['SERVER_NAME'].'/navupload/'.$filename;
             $res = Video::navInsert($data);
             if ($res){
-                return redirect('video');
+                return redirect('vedio');
             }
         }else{
             $res = Login::protype();
@@ -62,8 +63,9 @@ class VideoController extends Controller
     public function navdel($id)
     {
         $res = Video::navdelete($id);
+        print_r($res);die;
         if ($res){
-            return redirect('video');
+            return redirect('vedio');
         }
     }
     /*
@@ -74,7 +76,7 @@ class VideoController extends Controller
         $id = request()->only('id');
         $res = Video::navdelete($id);
         if ($res){
-            return redirect('video');
+            return redirect('vedio');
         }
     }
     /*
@@ -95,7 +97,7 @@ class VideoController extends Controller
             //调用方法修改
             $res = Video::navsave($data,$id);
             if ($res){
-                return redirect('video');
+                return redirect('vedio');
             }
         }else{
             $res = Nav::navselect($id);

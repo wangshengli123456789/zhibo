@@ -22,13 +22,7 @@
         <div class="result-content">
             <ul class="sys-info-list">
                 <li>
-                    <label class="res-lab">操作系统</label><span class="res-info">{{$data['server']}}</span>
-                </li>
-                <li>
-                    <label class="res-lab">Apache运行环境</label><span class="res-info">{{$data['apache']}}</span>
-                </li>
-                <li>
-                    <label class="res-lab">php运行环境</label><span class="res-info">{{$data['php']}}</span>
+                    <label class="res-lab">运行环境</label><span class="res-info">{{$data['apache']}}</span>
                 </li>
                 <li>
                     <label class="res-lab">数据库类型</label><span class="res-info">{{$data['dbcontent']}}</span>

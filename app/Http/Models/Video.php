@@ -79,7 +79,7 @@ class Video
      */
     public static function typeSelect($data)
     {
-        $res = DB::table('zb_video')->where('nav_name','like','%'.$data.'%')->paginate(5);
+        $res = DB::table('zb_video')->join('zb_type','zb_video.nav_type','=','zb_type.id')->where('nav_name','like','%'.$data.'%')->paginate(5);
         return $res;
     }
 }

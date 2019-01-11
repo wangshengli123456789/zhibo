@@ -1,5 +1,6 @@
 @extends('lyout.master')
 @section('content')
+    {{--<link rel="stylesheet" href="{{asset('css')}}/app.css">--}}
     <div class="main-wrap">
         <style>
             .pagination li {
@@ -19,11 +20,11 @@
             }
         </style>
         <div class="crumb-wrap">
-            <div class="crumb-list"><i class="icon-font"></i><a href="/index">首页</a><span class="crumb-step">&gt;</span><span class="crumb-name">视频管理</span></div>
+            <div class="crumb-list"><i class="icon-font"></i><a href="/index">首页</a><span class="crumb-step">&gt;</span><span class="crumb-name">轮播图管理</span></div>
         </div>
         <div class="search-wrap">
             <div class="search-content">
-                <form action="/vediosearch" method="post">
+                <form action="/navsearch" method="post">
                     <table class="search-tab">
                         <tr>
                             {{csrf_field()}}
@@ -36,11 +37,11 @@
             </div>
         </div>
         <div class="result-wrap">
-            <form name="myform" id="myform" method="post" action="vediodelall">
+            <form name="myform" id="myform" method="post" action="navdelall">
                 <div class="result-title">
                     <div class="result-list">
                         {{csrf_field()}}
-                        <a href="/vedioadd"><i class="icon-font"></i>新增视频</a>
+                        <a href="/navadd"><i class="icon-font"></i>新增轮播图</a>
                         <a id="batchDel" href="javascript:void(0)" onclick="if (confirm('确定删除吗?')) {$('#myform').submit()}"><i class="icon-font" ></i>批量删除</a>
                     </div>
                 </div>
@@ -48,32 +49,31 @@
                     <table class="result-tab" width="100%">
                         <tr>
                             <th class="tc" width="5%"><input class="allChoose" name="" type="checkbox"></th>
-                            <th>排序</th>
-                            <th>所属分类</th>
-                            <th>视频名称</th>
+                            <th>序号</th>
+                            <th>标题名称</th>
                             <th>缩略图</th>
-                            <th>状态</th>
+                            <th>票数</th>
                             <th>添加时间</th>
                             <th>操作</th>
                         </tr>
                         @foreach($list as $k=>$v)
                             <tr>
-                                <td class="tc"><input class="ids" value="{{$v->ids}}" name="id[]" type="checkbox"></td>
+                                <td class="tc"><input class="ids" value="{{$v->id}}" name="id[]" type="checkbox"></td>
                                 <td>
-                                    {{$v->sort}}
-                                </td>
-                                <td>{{$v->zb_name}}</td>
-                                <td>
-                                    {{$v->nav_name}}
+                                    {{$k+1}}
                                 </td>
                                 <td>
-                                    <img src="{{$v->nav_picture}}" alt="" width="30" height="30">
+                                    {{$v->name}}
                                 </td>
-                                <td>@if($v->status)<a href="javascript:void(0)" onclick="status({{$v->id}},{{$v->status}})">正常</a>@else <a href="javascript:void(0)" onclick="status({{$v->id}},{{$v->status}})">禁用</a>@endif</td>
-                                <td>{{date('Y-m-d H:i:s',$v->create_time)}}</td>
 
                                 <td>
-                                    <a class="link-del" href="/vediodel/{{$v->ids}}">删除</a>
+                                    <img src="{{$v->photo}}" alt="" width="30" height="30">
+                                </td><td>{{$v->count}}</td>
+                                <td>{{$v->created_at}}</td>
+
+                                <td>
+                                    <a class="link-update" href="/starupdate/{{$v->id}}">修改</a>
+                                    <a class="link-del" href="/stardelete/{{$v->id}}">删除</a>
                                 </td>
                             </tr>
                         @endforeach
@@ -95,7 +95,7 @@
         function status(id,status) {
             $.ajax({
                 type:'get',
-                url:'/updatevediostatus',
+                url:'/updatestatus',
                 data:{status:status,id:id},
                 success:function (e) {
                     window.location.reload();

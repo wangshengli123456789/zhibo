@@ -37,6 +37,8 @@
                             <li><a href="/nav"><i class="icon-font">&#xe005;</i>轮播图管理</a></li>
                             <li><a href="/design"><i class="icon-font">&#xe006;</i>直播分类管理</a></li>
                             <li><a href="/vedio"><i class="icon-font">&#xe006;</i>视频管理</a></li>
+                            <li><a href="/weixingzh"><i class="icon-font">&#xe006;</i>公众号管理</a></li>
+                            <li><a href="/staradd"><i class="icon-font">&#xe006;</i>投票管理</a></li>
                         </ul>
                     </li>
                     <li>

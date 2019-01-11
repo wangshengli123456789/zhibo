@@ -21,6 +21,9 @@ class VerifyCsrfToken extends Middleware
     protected $except = [
         '/',
         'login',
-        'zcTypeDelete'
+        'weixintoken',
+        'zcTypeDelete',
+        'getuserinfo',
+        'getuser'
     ];
 }

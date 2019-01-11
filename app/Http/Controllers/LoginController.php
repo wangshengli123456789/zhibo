@@ -52,13 +52,11 @@ class LoginController extends Controller
     public function index()
     {
         $array=array(
-            'server'=>$_SERVER['SystemRoot'],
             'apache'=>$_SERVER['SERVER_SOFTWARE'],
             'addrname'=>$_SERVER['SERVER_ADDR'],
             'host'=>$_SERVER['REMOTE_ADDR'],
             'name'=>$_SERVER['SERVER_NAME'],
             'create_time'=>date('Y-m-d H:i:s',Session::get('date')),
-            'php'=>$_SERVER['SERVER_SIGNATURE'],
             'dbcontent'=>$_SERVER['DB_CONNECTION'],
             'dbport'=>$_SERVER['DB_PORT'],
             'database'=>$_SERVER['DB_DATABASE'],
