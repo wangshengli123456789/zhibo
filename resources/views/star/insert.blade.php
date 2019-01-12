@@ -30,6 +30,14 @@
                                 </td>
                             </tr>
                             <tr>
+                            <tr>
+                                <th><i class="require-red">*</i>性别：</th>
+                                <td>
+                                    <input class="common-text required"  name="sex" size="50" value="男" type="radio" checked> 男
+                                    <input class="common-text required"  name="sex" size="50" value="女" type="radio"> 女
+                                </td>
+                            </tr>
+                            <tr>
                                 <th><i class="require-red">*</i>个人简介：</th>
                                 <td>
                                     <textarea name="jianjie" id="" cols="30" rows="10"></textarea>

@@ -196,8 +196,19 @@ Route::any('weixingnDel/{id}',['uses'=>"WeixinController@weixingnDel"]);
 Route::any('msgsend',['uses'=>"MessageController@read"]);
 Route::any('getuser',['uses'=>"MessageController@getindex"]);
 Route::any('getuserinfo',['uses'=>"MessageController@getuserinfo"]);
-//投票管理
+//投票管理 starruleread
 Route::any('staradd',['uses'=>"StarController@staradd"]);
 Route::any('starread',['uses'=>"StarController@starread"]);
 Route::any('starupdate/{id}',['uses'=>"StarController@starupdate"]);
 Route::any('stardelete/{id}',['uses'=>"StarController@stardelete"]);
+//投票规则
+Route::any('starruleadd',['uses'=>"StarController@starruleadd"]);
+Route::any('starruleread',['uses'=>"StarController@starruleread"]);
+Route::any('starruleupdate/{id}',['uses'=>"StarController@starruleupdate"]);
+Route::any('starruledelete/{id}',['uses'=>"StarController@starruledelete"]);
+//投票页面的显示
+Route::any('tpindex',['uses'=>'TpController@index']);
+//投票规则的展示
+Route::any('tprule',['uses'=>'TpController@tprule']);
+Route::any('tppaiming',['uses'=>'TpController@tppaiming']);
+Route::any('tpprize',['uses'=>'TpController@tpprize']);

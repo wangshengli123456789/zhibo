@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <title>最萌班级合照秀</title>
+    <link rel="stylesheet" href="css/celebrity.css">
+    <style type="text/css">
+       .btn-wrap{padding:10px 0;}
+       .btn-wrap a {
+           /*background: none repeat scroll 0 0 #f96f80;*/
+           background:url(images/aixin1.png) no-repeat;
+           background-size: 20px 20px;
+           background-position: 6px 8px;
+           border-radius:10px;
+           border:1px solid #f96f80;
+           color: #f96f80;
+           display: inline-block;
+           font-size:20px;
+           height: 36px;
+           line-height: 36px;
+           width:auto;
+           padding: 0 20px 0 26px;
+           font-weight: bold;
+       }
+    </style>
+</head>
+<body>
+    <div id="wrap_popup">
+       <div id="popup_detail">
+          <div id="detailed_popup" class="popup popup-detail" >
+              <div class="head">
+                  <h4>班级合照详情</h4><a href="index.blade.php" class="btn-close-wrap"><span class="s btn-close"></span></a>
+              </div>
+              <div class="body">
+                  <div class="head-wrap">
+                      <div class="head-inner">
+                          <img src="images/642.jpg" />
+                      </div>
+                  </div>
+                  <div class="detail-wrap">
+                      <div class="name">卡萝幼儿园</div>
+                      <div class="desc">小一班</div>
+                      <!-- <div class="count">400</div> -->
+                      <div class="btn-wrap">
+                           <a href="">喜欢</a>
+                      </div>
+                  </div>
+              </div>
+              <p class="n-a-text dn">快告诉朋友们，为咱家班级投票吧！</p>
+              <div class="vote">
+                  <div class="vote-title s s-title-vote-me"></div>
+                  <div class="clearfix">
+                      <div style="width:auto;height:auto; margin:15px 25px 5px 25px">
+                          <img src="images/cy.jpg" />
+                      </div>
+                  </div>
+                  <div class="info" style="font-size:14px;margin-top:0">
+                      <p>惠州市江北</p>
+                      <p>咨询电话：0752-2601818</p>
+                  </div>
+                  <a href="javascript:;" class="btn js-share">围观</a>
+                  <a id="share-wrap" href="javascript:;" class="share-wrap dn">
+                      <div class="share-text s"></div>
+                  </a>
+              </div>
+              <div class="bar">
+                  <div class="inner">
+                      <ul class="foot-nav">
+                          <li><a href="rule.blade.php" class="js-join">活动规则</a> </li>
+                    <li><a href="index.blade.php" class="highlight js-gift">排名</a> </li>
+                    <li><a href="prize.blade.php" class="js-search">查看奖品</a></li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+        </div>
+    </div>
+    <script src="{{}}js/zepto.js"></script>
+    <script src="js/jweixin-1.js"></script>
+    <script src="js/celebrity.js"></script>
+</body>
+
+</html>

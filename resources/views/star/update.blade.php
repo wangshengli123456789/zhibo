@@ -30,6 +30,13 @@
                             </td>
                         </tr>
                         <tr>
+                            <th><i class="require-red">*</i>性别：</th>
+                            <td>
+                                <input class="common-text required"  name="sex" size="50" value="男" type="radio" @if($data->sex=='男')checked @endif> 男
+                                <input class="common-text required"  name="sex" size="50" value="女" type="radio" @if($data->sex=='女')checked @endif> 女
+                            </td>
+                        </tr>
+                        <tr>
                             <th><i class="require-red">*</i>个人简介：</th>
                             <td>
                                 <textarea name="jianjie" id="" cols="30" rows="10">{{$data->jianjie}}</textarea>

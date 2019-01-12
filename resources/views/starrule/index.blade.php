@@ -41,7 +41,7 @@
                 <div class="result-title">
                     <div class="result-list">
                         {{csrf_field()}}
-                        <a href="/staradd"><i class="icon-font"></i>新增选手</a>
+                        <a href="/starruleadd"><i class="icon-font"></i>新增选手</a>
                         <a id="batchDel" href="javascript:void(0)" onclick="if (confirm('确定删除吗?')) {$('#myform').submit()}"><i class="icon-font" ></i>批量删除</a>
                     </div>
                 </div>
@@ -50,10 +50,9 @@
                         <tr>
                             <th class="tc" width="5%"><input class="allChoose" name="" type="checkbox"></th>
                             <th>序号</th>
-                            <th>标题名称</th>
-                            <th>性别</th>
-                            <th>缩略图</th>
-                            <th>票数</th>
+                            <th>温馨提示</th>
+                            <th>奖项设置</th>
+                            <th>关于作弊</th>
                             <th>添加时间</th>
                             <th>操作</th>
                         </tr>
@@ -64,24 +63,21 @@
                                     {{$k+1}}
                                 </td>
                                 <td>
-                                    {{$v->name}}
+                                    {{$v->message}}
                                 </td>
-                                <td>{{$v->sex}}</td>
-                                <td>
-                                    <img src="{{$v->photo}}" alt="" width="30" height="30">
-                                </td><td>{{$v->count}}</td>
+                                <td>{{$v->jxsz}}</td>
+                                <td>{{$v->gyzb}}</td>
                                 <td>{{$v->created_at}}</td>
 
                                 <td>
-                                    <a class="link-update" href="/starupdate/{{$v->id}}">修改</a>
-                                    <a class="link-del" href="/stardelete/{{$v->id}}">删除</a>
+                                    <a class="link-update" href="/starruleupdate/{{$v->id}}">修改</a>
+                                    <a class="link-del" href="/starruledelete/{{$v->id}}">删除</a>
                                 </td>
                             </tr>
                         @endforeach
                     </table>
                 </div>
             </form>
-            {{$list->render()}}
         </div>
     </div>
 
